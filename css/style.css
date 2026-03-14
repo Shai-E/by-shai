@@ -376,9 +376,11 @@ ul {
 }
 
 .about__project-icon {
-  font-size: 2rem;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
-  line-height: 1;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 .about__project-name {
@@ -473,7 +475,10 @@ ul {
 }
 
 .app-card__icon {
-  font-size: 2.5rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  object-fit: cover;
   margin-bottom: var(--space-md);
 }
 
