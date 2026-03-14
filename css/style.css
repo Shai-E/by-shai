@@ -311,6 +311,21 @@ ul {
 }
 
 /* ---------- About ---------- */
+.about__block {
+  margin-bottom: var(--space-xl);
+}
+
+.about__block:last-child {
+  margin-bottom: 0;
+}
+
+.about__subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
 .about__content {
   max-width: 640px;
 }
@@ -323,6 +338,78 @@ ul {
 
 .about__content p:last-child {
   margin-bottom: 0;
+}
+
+.about__content strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.about__content em {
+  color: var(--color-accent);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Project highlight cards inside About */
+.about__projects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.about__project {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.about__project:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.about__project-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.about__project-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.about__project p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.about__project p strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Mission block accent border */
+.about__mission {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-lg);
+  border-radius: 0;
+}
+
+@media (max-width: 480px) {
+  .about__project {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
 }
 
 /* ---------- Apps ---------- */
