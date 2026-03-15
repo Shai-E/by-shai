@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shai Eliav — Developer</title>
+  <meta name="description" content="Shai Eliav — app developer. Creator of Momma (gaming) and Shema (songwriting).">
+  <meta name="author" content="Shai Eliav">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shai Eliav — Developer">
+  <meta property="og:description" content="App developer. Creator of Momma and Shema.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://by-shai.net">
+
+  <!-- Favicon (inline SVG data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">by-shai<span class="accent">.net</span></a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#apps">Apps</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="hero">
+    <div class="container">
+      <p class="hero__greeting">Hi, I'm</p>
+      <h1 class="hero__name">Shai Eliav</h1>
+      <p class="hero__tagline">I build solutions for people I care about.</p>
+      <div class="hero__cta">
+        <a href="#apps" class="btn btn--primary">View My Apps</a>
+        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span>↓</span>
+    </div>
+  </header>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section__title fade-in">From Lessons to Lines&nbsp;of&nbsp;Code</h2>
+
+      <!-- The Teacher's Heart -->
+      <div class="about__block fade-in">
+        <h3 class="about__subtitle">🎓 The Teacher's Heart</h3>
+        <div class="about__content">
+          <p>
+            For years, my "source code" was a lesson plan and my "users" were my students.
+            Teaching taught me the most important lesson in development: <strong>Empathy.</strong>
+            If a student doesn't understand a concept, it's rarely their fault — it's the delivery.
+          </p>
+          <p>
+            I realized that the digital world has the same problem. Too many apps are built for
+            profit or data, and not enough are built for <em>people.</em> I decided to swap the
+            whiteboard for a keyboard to build tools that empower, simplify, and delight.
+          </p>
+        </div>
+      </div>
+
+      <!-- Building with Purpose -->
+      <div class="about__block fade-in">
+        <h3 class="about__subtitle">🛠️ Building with Purpose</h3>
+        <div class="about__content">
+          <p>
+            I don't just build "software." I build solutions for the people I love. This personal
+            connection keeps my standards high and my UX human-centric.
+          </p>
+        </div>
+
+        <div class="about__projects">
+          <div class="about__project fade-in">
+            <img src="assets/momma-logo.png" alt="Momma logo" class="about__project-icon">
+            <div>
+              <h4 class="about__project-name">Momma</h4>
+              <p>
+                I watched my mom get frustrated by constant ad-breaks in her favorite games.
+                So, I built her a sanctuary. <strong>Momma</strong> is an ad-free hub for
+                Sudoku, Wordle, 2048, and more — making sure her downtime is actually peaceful.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__project fade-in">
+            <img src="assets/shema-logo.png" alt="Shema logo" class="about__project-icon">
+            <div>
+              <h4 class="about__project-name">Shema</h4>
+              <p>
+                My songwriter friends had ideas scattered across voice memos and notebooks.
+                I created <strong>Shema</strong> to be their digital studio — combining lyrics,
+                recording, chords, and a teleprompter into one seamless portfolio.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__project fade-in">
+            <img src="assets/isracard-logo.jpg" alt="Isracard logo" class="about__project-icon">
+            <div>
+              <h4 class="about__project-name">Isracard</h4>
+              <p>
+                Today, I bring that same user-first mindset to my role at <strong>Isracard.</strong>
+                Working with a high-performing team of mobile developers, I help build and scale
+                one of Israel's most essential financial tools.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Mission -->
+      <div class="about__block about__mission fade-in">
+        <h3 class="about__subtitle">🚀 The Mission</h3>
+        <div class="about__content">
+          <p>
+            I believe that code is a superpower. While I spend my days refining enterprise-level
+            features and my nights building niche tools for friends, my eyes are always on
+            the horizon.
+          </p>
+          <p>
+            I am currently working on several secret projects with a singular goal: to eventually
+            release an app that doesn't just solve a small problem, but
+            <strong>changes the world for the better.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPS ============ -->
+  <section class="section apps" id="apps">
+    <div class="container">
+      <h2 class="section__title fade-in">My Apps</h2>
+      <div class="apps__grid">
+
+        <!-- Momma -->
+        <article class="app-card app-card--momma fade-in">
+          <img src="assets/momma-logo.png" alt="Momma logo" class="app-card__icon">
+          <h3 class="app-card__name">Momma</h3>
+          <p class="app-card__category">Gaming</p>
+          <p class="app-card__desc">
+            A fun and engaging gaming experience. Stay tuned for store links — the adventure is coming soon.
+          </p>
+          <div class="app-card__links">
+            <!-- Store links will go here -->
+            <a href="mailto:dev+momma@by-shai.net" class="btn btn--small btn--outline">
+              ✉ Support
+            </a>
+            <a href="privacy-momma.html" class="btn btn--small btn--outline">
+              🔒 Privacy Policy
+            </a>
+          </div>
+        </article>
+
+        <!-- Shema -->
+        <article class="app-card app-card--shema fade-in">
+          <img src="assets/shema-logo.png" alt="Shema logo" class="app-card__icon">
+          <h3 class="app-card__name">Shema</h3>
+          <p class="app-card__category">Songwriting</p>
+          <p class="app-card__desc">
+            A creative companion for songwriters. Capture ideas, structure songs, and bring your music to life.
+          </p>
+          <div class="app-card__links">
+            <!-- Store links will go here -->
+            <a href="mailto:dev+shema@by-shai.net" class="btn btn--small btn--outline">
+              ✉ Support
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section__title fade-in">Get in Touch</h2>
+      <p class="contact__text">
+        Have a question, idea, or just want to say hi? Reach out anytime.
+      </p>
+      <div class="contact__grid fade-in">
+        <div class="contact-card">
+          <h4>General Inquiries</h4>
+          <a href="mailto:dev@by-shai.net">dev@by-shai.net</a>
+        </div>
+        <div class="contact-card">
+          <h4>Momma Support</h4>
+          <a href="mailto:dev+momma@by-shai.net">dev+momma@by-shai.net</a>
+        </div>
+        <div class="contact-card">
+          <h4>Shema Support</h4>
+          <a href="mailto:dev+shema@by-shai.net">dev+shema@by-shai.net</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Shai Eliav. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

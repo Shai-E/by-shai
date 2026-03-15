@@ -1,0 +1,408 @@
+/* ===========================================
+   Easter Egg Styles
+   =========================================== */
+
+/* ---------- Developer Theme Override ---------- */
+body.dev-theme {
+  --color-bg:         #000000;
+  --color-surface:    #0a0a0a;
+  --color-surface-2:  #111111;
+  --color-border:     #1a3a1a;
+  --color-text:       #00ff00;
+  --color-text-muted: #00aa00;
+  --color-accent:     #00ff00;
+  --color-accent-hover: #33ff33;
+  --color-accent-glow: rgba(0, 255, 0, 0.1);
+  font-family: var(--font-mono) !important;
+}
+
+body.dev-theme * {
+  font-family: var(--font-mono) !important;
+}
+
+/* ---------- Terminal ---------- */
+.terminal {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  max-height: 360px;
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+}
+
+.terminal[hidden] { display: none; }
+
+.terminal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.terminal__title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.terminal__close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  line-height: 1;
+  transition: color var(--transition);
+}
+
+.terminal__close:hover { color: var(--color-red); }
+
+.terminal__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.terminal__output {
+  color: var(--color-green);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: var(--space-sm);
+}
+
+.terminal__input-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.terminal__prompt {
+  color: var(--color-green);
+  flex-shrink: 0;
+}
+
+.terminal__input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--color-green);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  outline: none;
+  caret-color: var(--color-green);
+}
+
+/* ---------- Developer Overlay ---------- */
+.dev-overlay { display: none; }
+.dev-overlay:not([hidden]) {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+}
+
+.dev-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.dev-overlay__panel {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  width: 560px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  box-shadow: 0 0 80px var(--color-accent-glow);
+}
+
+.dev-overlay__panel h2 {
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-sm);
+}
+
+.dev-overlay__welcome {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-md);
+}
+
+.dev-overlay__commands {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-md);
+}
+
+.dev-overlay__commands code {
+  color: var(--color-accent);
+}
+
+.dev-overlay__body {
+  color: var(--color-green);
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  margin-bottom: var(--space-md);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dev-overlay__input-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+.dev-overlay__prompt {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.dev-overlay__input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  outline: none;
+  caret-color: var(--color-accent);
+}
+
+.dev-overlay__close {
+  display: block;
+  margin-top: var(--space-md);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+  width: 100%;
+  text-align: center;
+}
+
+.dev-overlay__close:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ---------- Game Modal ---------- */
+.game-modal { display: none; }
+.game-modal:not([hidden]) {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.game-modal__panel {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.game-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+}
+
+.game-modal__close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.game-modal__close:hover { color: var(--color-red); }
+
+.game-modal__subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+#snakeCanvas {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  display: block;
+  margin: 0 auto var(--space-sm);
+}
+
+.game-modal__controls {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Achievement Toast ---------- */
+.achievement-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  z-index: 4000;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.achievement-toast[hidden] {
+  display: flex;
+}
+
+.achievement-toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.achievement-toast__icon {
+  font-size: 1.5rem;
+}
+
+.achievement-toast__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+}
+
+.achievement-toast__name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* ---------- Recruiter Popup ---------- */
+.recruiter-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  animation: slideInUp 0.4s ease;
+}
+
+.recruiter-popup[hidden] { display: none; }
+
+.recruiter-popup__content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  max-width: 280px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.recruiter-popup__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.recruiter-popup__close:hover { color: var(--color-red); }
+
+.recruiter-popup__title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+
+.recruiter-popup__text {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-sm);
+}
+
+.recruiter-popup__text:last-of-type {
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Confetti (shake easter egg) ---------- */
+.confetti-piece {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  z-index: 5000;
+  pointer-events: none;
+  animation: confettiFall 2s ease forwards;
+}
+
+@keyframes confettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+/* ---------- Shake Message ---------- */
+.shake-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: var(--space-lg) var(--space-xl);
+  text-align: center;
+  z-index: 5000;
+  animation: fadeUp 0.4s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
