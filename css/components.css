@@ -94,6 +94,7 @@
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  min-height: 100dvh;
   padding-top: var(--nav-height);
   position: relative;
   overflow: hidden;
@@ -202,9 +203,9 @@
 .hero__code-dots span:nth-child(3) { background: var(--color-green); }
 
 .hero__code-text {
-  padding: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
   line-height: 1.8;
   color: var(--color-text-muted);
   white-space: pre;

@@ -31,9 +31,16 @@
 
   .nav__links a { font-size: 1.1rem; }
 
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + var(--space-xl));
+    padding-bottom: var(--space-xl);
+  }
+
   .hero__grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: var(--space-lg);
   }
 
   .hero__content { order: 1; }
@@ -41,6 +48,7 @@
 
   .hero__tagline {
     margin-inline: auto;
+    font-size: 0.95rem;
   }
 
   .hero__cta {
@@ -52,6 +60,29 @@
   .hero__cta .btn {
     justify-content: center;
     text-align: center;
+    width: 100%;
+  }
+
+  .hero__bg-glow {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: -20%;
+  }
+
+  .hero__code-window {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero__code-text {
+    font-size: 0.72rem;
+    padding: var(--space-sm) var(--space-md);
+    line-height: 1.6;
+  }
+
+  .hero__scroll {
+    display: none;
   }
 
   .projects__grid { grid-template-columns: 1fr; }
@@ -79,4 +110,34 @@
   .container { padding-inline: var(--space-md); }
   .section { padding: var(--space-xl) 0; }
   .skills__grid { grid-template-columns: 1fr; }
+
+  .hero {
+    padding-top: calc(var(--nav-height) + var(--space-lg));
+    padding-bottom: var(--space-lg);
+  }
+
+  .hero__name {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+
+  .hero__title {
+    font-size: 0.95rem;
+  }
+
+  .hero__tagline {
+    font-size: 0.88rem;
+  }
+
+  .hero__cta {
+    gap: var(--space-sm);
+  }
+
+  .hero__cta .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.88rem;
+  }
+
+  .hero__code {
+    display: none;
+  }
 }
