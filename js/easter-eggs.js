@@ -157,7 +157,7 @@ github.com/Shai-E
       devOverlayBody.textContent += `> ${cmd}\n${response}\n\n`;
       devOverlayBody.scrollTop = devOverlayBody.scrollHeight;
 
-      if (cmd === 'projects') scrollToSection('projects');
+      if (cmd === 'projects') scrollToSection('stores');
       if (cmd === 'contact') scrollToSection('contact');
       if (cmd === 'skills') scrollToSection('skills');
     });
@@ -201,7 +201,7 @@ github.com/Shai-E
       terminalOutput.textContent += `> ${cmd}\n${response}\n\n`;
       terminalOutput.parentElement.scrollTop = terminalOutput.parentElement.scrollHeight;
 
-      if (cmd === 'projects') scrollToSection('projects');
+      if (cmd === 'projects') scrollToSection('stores');
       if (cmd === 'hire-me' || cmd === 'contact') scrollToSection('contact');
       if (cmd === 'skills') scrollToSection('skills');
     });
