@@ -355,6 +355,49 @@ github.com/Shai-E
 
     document.addEventListener('keydown', handleKey);
 
+    // Touch swipe controls for mobile
+    let touchStartX = 0, touchStartY = 0;
+
+    canvas.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+    }, { passive: true });
+
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', (e) => {
+      if (gameModal.hidden) return;
+      const touch = e.changedTouches[0];
+      const diffX = touch.clientX - touchStartX;
+      const diffY = touch.clientY - touchStartY;
+      const minSwipe = 20;
+
+      if (Math.abs(diffX) < minSwipe && Math.abs(diffY) < minSwipe) {
+        // Tap to restart when game over
+        if (!gameRunning) {
+          snake = [{ x: 10, y: 10 }];
+          food = spawnFood();
+          dx = 0; dy = 0;
+          nextDx = 0; nextDy = 0;
+          score = 0;
+          gameRunning = true;
+        }
+        return;
+      }
+
+      if (!gameRunning) return;
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0 && dx !== -1) { nextDx = 1; nextDy = 0; }
+        else if (diffX < 0 && dx !== 1) { nextDx = -1; nextDy = 0; }
+      } else {
+        if (diffY > 0 && dy !== -1) { nextDx = 0; nextDy = 1; }
+        else if (diffY < 0 && dy !== 1) { nextDx = 0; nextDy = -1; }
+      }
+    });
+
     if (snakeInterval) clearInterval(snakeInterval);
     snakeInterval = setInterval(update, 120);
     draw();
