@@ -20,6 +20,103 @@ body.dev-theme * {
   font-family: var(--font-mono) !important;
 }
 
+/* ---------- 90s Retro Theme ---------- */
+body.retro-theme {
+  --color-bg:          #f5f0eb;
+  --color-surface:     #ffffff;
+  --color-surface-2:   #ece5dc;
+  --color-border:      #d4c8b8;
+  --color-text:        #2d2a26;
+  --color-text-muted:  #6b6560;
+  --color-accent:      #d6336c;
+  --color-accent-hover:#c0255a;
+  --color-accent-glow: rgba(214, 51, 108, 0.1);
+  --color-green:       #0c7c84;
+  --color-orange:      #d9730d;
+  --color-red:         #cc3333;
+}
+
+body.retro-theme .nav {
+  background: rgba(245, 240, 235, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+body.retro-theme .nav--scrolled {
+  background: rgba(245, 240, 235, 0.97);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+}
+
+body.retro-theme .hero__bg-glow {
+  background: radial-gradient(
+    circle,
+    rgba(214, 51, 108, 0.06) 0%,
+    rgba(12, 124, 132, 0.04) 50%,
+    transparent 70%
+  );
+}
+
+body.retro-theme .hero__code-window {
+  background: #2d2a26;
+  border-color: #44403a;
+}
+
+body.retro-theme .hero__code-text { color: #e8e0d4; }
+body.retro-theme .hero__code-text .keyword { color: #f472b6; }
+body.retro-theme .hero__code-text .variable { color: #67e8f9; }
+body.retro-theme .hero__code-text .string { color: #fbbf24; }
+body.retro-theme .hero__code-text .property { color: #c4b5fd; }
+body.retro-theme .hero__code-text .bracket { color: #67e8f9; }
+body.retro-theme .hero__code-text .punctuation { color: #a8a29e; }
+
+body.retro-theme .tech-badge {
+  background: rgba(214, 51, 108, 0.08);
+  color: var(--color-accent);
+  border-color: rgba(214, 51, 108, 0.2);
+}
+
+body.retro-theme .project-card:hover .project-card__icon,
+body.retro-theme .contact-card:hover .contact-card__icon {
+  background: rgba(214, 51, 108, 0.1);
+  border-color: var(--color-accent);
+}
+
+body.retro-theme .btn--primary {
+  box-shadow: 0 2px 12px rgba(214, 51, 108, 0.2);
+}
+
+body.retro-theme .btn--primary:hover {
+  box-shadow: 0 4px 20px rgba(214, 51, 108, 0.3);
+}
+
+body.retro-theme .btn--outline {
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+body.retro-theme .section__title::after {
+  background: linear-gradient(90deg, #d6336c, #0c7c84);
+}
+
+body.retro-theme .timeline__dot {
+  background: #d6336c;
+  box-shadow: 0 0 0 2px #d6336c, 0 0 8px rgba(214, 51, 108, 0.3);
+}
+
+body.retro-theme .scroll-complete {
+  background: linear-gradient(to bottom, transparent, rgba(214, 51, 108, 0.05));
+}
+
+body.retro-theme .store-card__badge {
+  color: #0c7c84;
+  background: rgba(12, 124, 132, 0.08);
+  border-color: rgba(12, 124, 132, 0.2);
+}
+
+body.retro-theme .nav__theme {
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
 /* ---------- Terminal ---------- */
 .terminal {
   position: fixed;
@@ -402,7 +499,12 @@ body.dev-theme * {
   padding: var(--space-lg) var(--space-xl);
   text-align: center;
   z-index: 5000;
-  animation: fadeUp 0.4s ease;
+  animation: popIn 0.3s ease;
   font-size: 1.1rem;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }

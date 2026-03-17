@@ -481,7 +481,31 @@ github.com/Shai-E
     setTimeout(() => msg.remove(), 3000);
   }
 
-  /* ---------- 7. Secret Developer Theme ---------- */
+  /* ---------- 7. Theme Toggle (Light / Dark) ---------- */
+  let currentTheme = localStorage.getItem('shai_theme') || '';
+  let themeBeforeDev = localStorage.getItem('shai_theme_before_dev') || '';
+
+  // Restore saved theme
+  if (currentTheme === 'retro-theme' || currentTheme === 'dev-theme') {
+    document.body.classList.add(currentTheme);
+  }
+
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      // Toggle between default (dark) and retro-theme (light)
+      document.body.classList.remove('dev-theme', 'retro-theme');
+      if (currentTheme === 'retro-theme') {
+        currentTheme = '';
+      } else {
+        currentTheme = 'retro-theme';
+        document.body.classList.add('retro-theme');
+      }
+      localStorage.setItem('shai_theme', currentTheme);
+    });
+  }
+
+  // Easter egg: right-click logo 3x → dev theme
   const logoEl = document.querySelector('.nav__logo');
   let themeClicks = [];
 
@@ -493,22 +517,30 @@ github.com/Shai-E
       themeClicks = themeClicks.filter(t => now - t < 2000);
       if (themeClicks.length >= 3) {
         themeClicks = [];
-        toggleDevTheme();
+        const wasDevTheme = currentTheme === 'dev-theme';
+        document.body.classList.remove('retro-theme', 'dev-theme');
+
+        if (wasDevTheme) {
+          // Restore previous theme
+          currentTheme = themeBeforeDev;
+          if (currentTheme) document.body.classList.add(currentTheme);
+        } else {
+          // Enter dev theme, remember current
+          themeBeforeDev = currentTheme;
+          localStorage.setItem('shai_theme_before_dev', themeBeforeDev);
+          currentTheme = 'dev-theme';
+          document.body.classList.add('dev-theme');
+
+          const msg = document.createElement('div');
+          msg.className = 'shake-message';
+          msg.innerHTML = 'Entering developer mode...<br><small style="color: #00ff00;">Terminal aesthetic activated</small>';
+          document.body.appendChild(msg);
+          setTimeout(() => msg.remove(), 2000);
+        }
+        localStorage.setItem('shai_theme', currentTheme);
+        Achievements.unlock('theme_switcher');
       }
     });
-  }
-
-  function toggleDevTheme() {
-    const isDevTheme = document.body.classList.toggle('dev-theme');
-    Achievements.unlock('theme_switcher');
-
-    if (isDevTheme) {
-      const msg = document.createElement('div');
-      msg.className = 'shake-message';
-      msg.innerHTML = 'Entering developer mode...<br><small style="color: #00ff00;">Terminal aesthetic activated</small>';
-      document.body.appendChild(msg);
-      setTimeout(() => msg.remove(), 2000);
-    }
   }
 
   /* ---------- 8. Scroll Completion Achievement ---------- */
