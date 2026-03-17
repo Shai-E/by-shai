@@ -3,7 +3,8 @@
    =========================================== */
 
 @media (max-width: 768px) {
-  .nav__toggle { display: flex; }
+  .nav__toggle { display: flex; margin-left: auto; }
+  .nav__theme { order: 1; }
 
   .nav__links {
     position: fixed;
